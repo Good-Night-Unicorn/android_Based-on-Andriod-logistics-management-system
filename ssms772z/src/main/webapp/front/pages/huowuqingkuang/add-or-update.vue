@@ -1,0 +1,594 @@
+<template>
+	<view class="content">
+		<form class="app-update-pv">
+			 
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">物流单号</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.wuliudanhao" v-model="ruleForm.wuliudanhao" placeholder="物流单号"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">货物名称</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.huowumingcheng" v-model="ruleForm.huowumingcheng" placeholder="货物名称"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">货物类型</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.huowuleixing" v-model="ruleForm.huowuleixing" placeholder="货物类型"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0.25)","borderColor":"rgba(65, 65, 65, 1)","margin":"0 0 20rpx 0","borderRadius":"0","borderWidth":"0 0 4rpx","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group" @tap="tupianTap">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">图片</view>
+				<view class="right-input" style="padding:0">
+					<image :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","borderRadius":"100%","borderWidth":"4rpx","width":"88rpx","borderStyle":"solid","height":"88rpx"}' class="avator" v-if="ruleForm.tupian" :src="baseUrl+ruleForm.tupian" mode="aspectFill"></image>
+					<image :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","borderRadius":"100%","borderWidth":"4rpx","width":"88rpx","borderStyle":"solid","height":"88rpx"}' class="avator" v-else src="../../static/gen/upload.png" mode="aspectFill"></image>
+				</view>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">货物重量</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.huowuzhongliang" v-model="ruleForm.huowuzhongliang" placeholder="货物重量"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">发货人</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.fahuoren" v-model="ruleForm.fahuoren" placeholder="发货人"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">发货地址</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.fahuodizhi" v-model="ruleForm.fahuodizhi" placeholder="发货地址"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">手机</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.shouji" v-model="ruleForm.shouji" placeholder="手机"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">收货人</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.shouhuoren" v-model="ruleForm.shouhuoren" placeholder="收货人"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">收货人手机</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.shouhuorenshouji" v-model="ruleForm.shouhuorenshouji" placeholder="收货人手机"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">收货地址</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.shouhuodizhi" v-model="ruleForm.shouhuodizhi" placeholder="收货地址"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">客户账号</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.kehuzhanghao" v-model="ruleForm.kehuzhanghao" placeholder="客户账号"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">客户姓名</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.kehuxingming" v-model="ruleForm.kehuxingming" placeholder="客户姓名"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">费用</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.feiyong" v-model="ruleForm.feiyong" placeholder="费用"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">员工姓名</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.yuangongxingming" v-model="ruleForm.yuangongxingming" placeholder="员工姓名"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">员工工号</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' :disabled="ro.yuangonggonghao" v-model="ruleForm.yuangonggonghao" placeholder="员工工号"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0 0 20rpx 0","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 0.25)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">收件时间</view>
+				<input :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","borderColor":"rgba(0,0,0,.6)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"88rpx"}' v-model="ruleForm.shoujianshijian" placeholder="收件时间" @tap="toggleTab('shoujianshijian')"></input>
+			</view>
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0.25)","borderColor":"#ccc","margin":"0 0 20rpx 0","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"108rpx"}' class="cu-form-group select">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">状态</view>
+				<picker @change="zhuangtaiChange" :value="zhuangtaiIndex"  :range="zhuangtaiOptions">
+					<view :style='{"padding":"0 30rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","backgroundColor":"rgba(255, 255, 255, 0)","borderColor":"rgba(0,0,0,.6)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"16rpx","borderWidth":"2rpx","width":"calc(100% - 160rpx)","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="uni-input">{{ruleForm.zhuangtai?ruleForm.zhuangtai:"请选择状态"}}</view>
+				</picker>
+			</view>
+			
+			<!-- 否 -->
+ 
+
+			<view :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0.25)","borderColor":"#ccc","margin":"0 0 20rpx 0","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"308rpx"}' class="cu-form-group">
+				<view :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(0, 0, 0, 1)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"160rpx","lineHeight":"80rpx","fontSize":"28rpx","borderStyle":"solid"}' class="title">订单备注</view>
+				<textarea :style='{"padding":"20rpx","boxShadow":"0 0 0px rgba(0,0,0,.6) inset","margin":"0","backgroundColor":"rgba(255, 255, 255, 0)","borderColor":"rgba(0,0,0,.6)","borderRadius":"16rpx","color":"rgba(0, 0, 0, 1)","borderWidth":"2rpx","width":"calc(100% - 160rpx)","fontSize":"28rpx","borderStyle":"solid","height":"280rpx"}' v-model="ruleForm.dingdanbeizhu" placeholder="订单备注"></textarea>
+			</view>
+			
+			
+			<view class="btn" >
+				<button :style='{"padding":"0","boxShadow":"0 0 16rpx rgba(0,0,0,0) inset","margin":"0","backgroundColor":"rgba(209, 176, 134, 1)","borderColor":"rgba(209, 176, 134, 1)","borderRadius":"80rpx","color":"#fff","borderWidth":"0","width":"320rpx","fontSize":"28rpx","borderStyle":"solid","height":"80rpx"}' @tap="onSubmitTap" class="bg-red">提交</button>
+			</view>
+		</form>
+
+		<w-picker mode="dateTime" step="1" :current="false" :hasSecond="false" @confirm="shoujianshijianConfirm" ref="shoujianshijian" themeColor="#333333"></w-picker>
+			
+	</view>
+</template>
+
+<script>
+	import wPicker from "@/components/w-picker/w-picker.vue";
+
+	export default {
+		data() {
+			return {
+				cross:'',
+				ruleForm: {
+				wuliudanhao: '',
+				huowumingcheng: '',
+				huowuleixing: '',
+				tupian: '',
+				huowuzhongliang: '',
+				fahuoren: '',
+				fahuodizhi: '',
+				shouji: '',
+				shouhuoren: '',
+				shouhuorenshouji: '',
+				shouhuodizhi: '',
+				kehuzhanghao: '',
+				kehuxingming: '',
+				dingdanbeizhu: '',
+				feiyong: '',
+				yuangongxingming: '',
+				yuangonggonghao: '',
+				shoujianshijian: '',
+			        zhuangtai: '运输中',
+				userid: '',
+				},
+				zhuangtaiOptions: [],
+				zhuangtaiIndex: 0,
+				// 登陆用户信息
+				user: {},
+                                ro:{
+                                   wuliudanhao : false,
+                                   huowumingcheng : false,
+                                   huowuleixing : false,
+                                   tupian : false,
+                                   huowuzhongliang : false,
+                                   fahuoren : false,
+                                   fahuodizhi : false,
+                                   shouji : false,
+                                   shouhuoren : false,
+                                   shouhuorenshouji : false,
+                                   shouhuodizhi : false,
+                                   kehuzhanghao : false,
+                                   kehuxingming : false,
+                                   dingdanbeizhu : false,
+                                   feiyong : false,
+                                   yuangongxingming : false,
+                                   yuangonggonghao : false,
+                                   shoujianshijian : false,
+                                   zhuangtai : false,
+                                   userid : false,
+                                },
+			}
+		},
+		components: {
+			wPicker
+		},
+		computed: {
+			baseUrl() {
+				return this.$base.url;
+			},
+
+
+
+		},
+		async onLoad(options) {
+        		this.ruleForm.shoujianshijian = this.$utils.getCurDateTime();
+
+			let table = uni.getStorageSync("nowTable");
+			// 获取用户信息
+			let res = await this.$api.session(table);
+			this.user = res.data;
+			
+			// ss读取
+			this.ruleForm.yuangongxingming = this.user.yuangongxingming
+			this.ro.yuangongxingming = true;
+			this.ruleForm.yuangonggonghao = this.user.yuangonggonghao
+			this.ro.yuangonggonghao = true;
+
+
+			// 自定义下拉框值
+			this.zhuangtaiOptions = "送货完成,运输中".split(',')
+
+			// 如果有登陆，获取登陆后保存的userid
+			this.ruleForm.userid = uni.getStorageSync("userid")
+			if (options.refid) {
+				// 如果上一级页面传递了refid，获取改refid数据信息
+				this.ruleForm.refid = options.refid;
+				this.ruleForm.nickname = uni.getStorageSync("nickname");
+			}
+			// 如果是更新操作
+			if (options.id) {
+				this.ruleForm.id = options.id;
+				// 获取信息
+				res = await this.$api.info(`huowuqingkuang`, this.ruleForm.id);
+				this.ruleForm = res.data;
+			}
+			// 跨表
+			this.cross = options.cross;
+			if(options.cross){
+				var obj = uni.getStorageSync('crossObj');
+				for (var o in obj){
+					if(o=='wuliudanhao'){
+					this.ruleForm.wuliudanhao = obj[o];
+					this.ro.wuliudanhao = true;
+					continue;
+					}
+					if(o=='huowumingcheng'){
+					this.ruleForm.huowumingcheng = obj[o];
+					this.ro.huowumingcheng = true;
+					continue;
+					}
+					if(o=='huowuleixing'){
+					this.ruleForm.huowuleixing = obj[o];
+					this.ro.huowuleixing = true;
+					continue;
+					}
+					if(o=='tupian'){
+					this.ruleForm.tupian = obj[o];
+					this.ro.tupian = true;
+					continue;
+					}
+					if(o=='huowuzhongliang'){
+					this.ruleForm.huowuzhongliang = obj[o];
+					this.ro.huowuzhongliang = true;
+					continue;
+					}
+					if(o=='fahuoren'){
+					this.ruleForm.fahuoren = obj[o];
+					this.ro.fahuoren = true;
+					continue;
+					}
+					if(o=='fahuodizhi'){
+					this.ruleForm.fahuodizhi = obj[o];
+					this.ro.fahuodizhi = true;
+					continue;
+					}
+					if(o=='shouji'){
+					this.ruleForm.shouji = obj[o];
+					this.ro.shouji = true;
+					continue;
+					}
+					if(o=='shouhuoren'){
+					this.ruleForm.shouhuoren = obj[o];
+					this.ro.shouhuoren = true;
+					continue;
+					}
+					if(o=='shouhuorenshouji'){
+					this.ruleForm.shouhuorenshouji = obj[o];
+					this.ro.shouhuorenshouji = true;
+					continue;
+					}
+					if(o=='shouhuodizhi'){
+					this.ruleForm.shouhuodizhi = obj[o];
+					this.ro.shouhuodizhi = true;
+					continue;
+					}
+					if(o=='kehuzhanghao'){
+					this.ruleForm.kehuzhanghao = obj[o];
+					this.ro.kehuzhanghao = true;
+					continue;
+					}
+					if(o=='kehuxingming'){
+					this.ruleForm.kehuxingming = obj[o];
+					this.ro.kehuxingming = true;
+					continue;
+					}
+					if(o=='dingdanbeizhu'){
+					this.ruleForm.dingdanbeizhu = obj[o];
+					this.ro.dingdanbeizhu = true;
+					continue;
+					}
+					if(o=='feiyong'){
+					this.ruleForm.feiyong = obj[o];
+					this.ro.feiyong = true;
+					continue;
+					}
+					if(o=='yuangongxingming'){
+					this.ruleForm.yuangongxingming = obj[o];
+					this.ro.yuangongxingming = true;
+					continue;
+					}
+					if(o=='yuangonggonghao'){
+					this.ruleForm.yuangonggonghao = obj[o];
+					this.ro.yuangonggonghao = true;
+					continue;
+					}
+					if(o=='shoujianshijian'){
+					this.ruleForm.shoujianshijian = obj[o];
+					this.ro.shoujianshijian = true;
+					continue;
+					}
+					if(o=='zhuangtai'){
+					this.ruleForm.zhuangtai = obj[o];
+					this.ro.zhuangtai = true;
+					continue;
+					}
+					if(o=='userid'){
+					this.ruleForm.userid = obj[o];
+					this.ro.userid = true;
+					continue;
+					}
+				}
+			}
+			this.styleChange()
+		},
+		methods: {
+			styleChange() {
+				this.$nextTick(()=>{
+					// document.querySelectorAll('.app-update-pv .cu-form-group .uni-input-input').forEach(el=>{
+					//   el.style.backgroundColor = this.addUpdateForm.input.content.backgroundColor
+					// })
+				})
+			},
+
+			// 多级联动参数
+
+
+			// 日长控件选择日期时间
+			shoujianshijianConfirm(val) {
+				console.log(val)
+				this.ruleForm.shoujianshijian = val.result;
+				this.$forceUpdate();
+			},
+
+			// 下拉变化
+			zhuangtaiChange(e) {
+				this.zhuangtaiIndex = e.target.value
+				this.ruleForm.zhuangtai = this.zhuangtaiOptions[this.zhuangtaiIndex]
+			},
+
+			tupianTap() {
+				let _this = this;
+				this.$api.upload(function(res) {
+					_this.ruleForm.tupian = 'upload/' + res.file;
+					_this.$forceUpdate();
+					_this.$nextTick(()=>{
+						_this.styleChange()
+					})
+				});
+			},
+
+			getUUID () {
+				return new Date().getTime();
+			},
+			async onSubmitTap() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//跨表计算判断
+				if((!this.ruleForm.huowumingcheng)){
+					this.$utils.msg(`货物名称不能为空`);
+					return
+				}
+				if((!this.ruleForm.huowuleixing)){
+					this.$utils.msg(`货物类型不能为空`);
+					return
+				}
+				if((!this.ruleForm.huowuzhongliang)){
+					this.$utils.msg(`货物重量不能为空`);
+					return
+				}
+				if(this.ruleForm.shouji&&(!this.$validate.isMobile(this.ruleForm.shouji))){
+					this.$utils.msg(`手机应输入手机格式`);
+					return
+				}
+				if(this.ruleForm.shouhuorenshouji&&(!this.$validate.isMobile(this.ruleForm.shouhuorenshouji))){
+					this.$utils.msg(`收货人手机应输入手机格式`);
+					return
+				}
+				if((!this.ruleForm.feiyong)){
+					this.$utils.msg(`费用不能为空`);
+					return
+				}
+				if(this.ruleForm.feiyong&&(!this.$validate.isIntNumer(this.ruleForm.feiyong))){
+					this.$utils.msg(`费用应输入整数`);
+					return
+				}
+				if((!this.ruleForm.zhuangtai)){
+					this.$utils.msg(`状态不能为空`);
+					return
+				}
+				//更新跨表属性
+			       var crossuserid;
+			       var crossrefid;
+			       var crossoptnum;
+				if(this.cross){
+					var statusColumnName = uni.getStorageSync('statusColumnName');
+					var statusColumnValue = uni.getStorageSync('statusColumnValue');
+					if(statusColumnName!='') {
+						var obj = uni.getStorageSync('crossObj');
+						if(!statusColumnName.startsWith("[")) {
+							for (var o in obj){
+								if(o==statusColumnName){
+									obj[o] = statusColumnValue;
+								}
+
+							}
+							var table = uni.getStorageSync('crossTable');
+							await this.$api.update(`${table}`, obj);
+						} else {
+						       crossuserid=Number(uni.getStorageSync('userid'));
+						       crossrefid=obj['id'];
+						       crossoptnum=uni.getStorageSync('statusColumnName');
+						       crossoptnum=crossoptnum.replace(/\[/,"").replace(/\]/,"");
+						}
+					}
+				}
+				if(crossrefid && crossuserid) {
+					this.ruleForm.crossuserid=crossuserid;
+					this.ruleForm.crossrefid=crossrefid;
+					let params = {
+						page: 1,
+						limit:10,
+						crossuserid:crossuserid,
+						crossrefid:crossrefid,
+					}
+					let res = await this.$api.list(`huowuqingkuang`, params);
+					if (res.data.total >= crossoptnum) {
+						this.$utils.msg(uni.getStorageSync('tips'));
+						return false;
+					} else {
+                //跨表计算
+						if(this.ruleForm.id){
+							await this.$api.update(`huowuqingkuang`, this.ruleForm);
+						}else{
+							await this.$api.add(`huowuqingkuang`, this.ruleForm);
+						}
+						this.$utils.msgBack('提交成功');
+					}
+				} else {
+                //跨表计算
+					if(this.ruleForm.id){
+						await this.$api.update(`huowuqingkuang`, this.ruleForm);
+					}else{
+						await this.$api.add(`huowuqingkuang`, this.ruleForm);
+					}
+					this.$utils.msgBack('提交成功');
+				}
+			},
+			optionsChange(e) {
+				this.index = e.target.value
+			},
+			bindDateChange(e) {
+				this.date = e.target.value
+			},
+			getDate(type) {
+				const date = new Date();
+				let year = date.getFullYear();
+				let month = date.getMonth() + 1;
+				let day = date.getDate();
+				if (type === 'start') {
+					year = year - 60;
+				} else if (type === 'end') {
+					year = year + 2;
+				}
+				month = month > 9 ? month : '0' + month;;
+				day = day > 9 ? day : '0' + day;
+				return `${year}-${month}-${day}`;
+			},
+			toggleTab(str) {
+				this.$refs[str].show();
+			}
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	.container {
+		padding: 20upx;
+	}
+	
+	.content:after {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		content: '';
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center;
+	}
+
+	textarea {
+		border: 1upx solid #EEEEEE;
+		border-radius: 20upx;
+		padding: 20upx;
+	}
+
+	.title {
+		width: 180upx;
+	}
+
+	.avator {
+		width: 150upx;
+		height: 60upx;
+	}
+
+	.right-input {
+		flex: 1;
+		text-align: left;
+		padding: 0 24upx;
+	}
+	
+	.cu-form-group.active {
+		justify-content: space-between;
+	}
+	
+	.btn {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  flex-wrap: wrap;
+	  padding: 20upx 0;
+	}
+	
+	.cu-form-group {
+		padding: 0 24upx;
+		background-color: transparent;
+		min-height: inherit;
+	}
+	
+	.cu-form-group+.cu-form-group {
+		border: 0;
+	}
+	
+	.cu-form-group uni-input {
+		padding: 0 30upx;
+	}
+	
+	.uni-input {
+		padding: 0 30upx;
+	}
+	
+	.cu-form-group uni-textarea {
+		padding: 30upx;
+		margin: 0;
+	}
+	
+	.cu-form-group uni-picker::after {
+		line-height: 80rpx;
+	}
+	
+	.select .uni-input {
+		line-height: 80rpx;
+	}
+	
+	.input .right-input {
+		line-height: 88rpx;
+	}
+</style>

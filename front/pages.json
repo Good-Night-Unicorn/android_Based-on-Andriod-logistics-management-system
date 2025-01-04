@@ -1,0 +1,261 @@
+{
+    "easycom": {
+    	"^z-(.*)": "@zebra-ui/swiper/components/z-$1/z-$1.vue"
+    },
+	"pages": [{
+		"path": "pages/login/login",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white",
+			"navigationBarTitleText": "登录"
+		}
+	}, {
+		"path": "pages/register/register",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white",
+			"navigationBarTitleText": "注册"
+		}
+	}, {
+		"path": "pages/forget/forget",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white",
+			"navigationBarTitleText": "忘记密码"
+		}
+	}, {
+		"path": "pages/center/center",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white",
+			"navigationBarTitleText": "我的"
+		}
+	}, {
+		"path": "pages/user-info/user-info",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white",
+			"navigationBarTitleText": "用户信息"
+		}
+	}
+	, {
+		"path": "pages/news-detail/news-detail",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white",
+			"navigationBarTitleText": "资讯详情"
+		}
+	}
+	,{
+		"path": "pages/kehu/list",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/kehu/add-or-update",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/kehu/detail",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	}
+	,{
+		"path": "pages/yuangong/list",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/yuangong/add-or-update",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/yuangong/detail",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	}
+	,{
+		"path": "pages/huowudingdan/list",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/huowudingdan/add-or-update",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/huowudingdan/detail",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	}
+	,{
+		"path": "pages/huowuqingkuang/list",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/huowuqingkuang/add-or-update",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/huowuqingkuang/detail",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	}
+	,{
+		"path": "pages/liuyanfankui/list",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/liuyanfankui/add-or-update",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/liuyanfankui/detail",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	}
+	,{
+		"path": "pages/liuyanhuifu/list",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/liuyanhuifu/add-or-update",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/liuyanhuifu/detail",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	}
+	,{
+		"path": "pages/peisongwancheng/list",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/peisongwancheng/add-or-update",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/peisongwancheng/detail",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	}
+	,{
+		"path": "pages/news/list",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/news/add-or-update",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	},{
+		"path": "pages/news/detail",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white"
+		}
+	}
+	, {
+		"path": "pages/pay-confirm/pay-confirm",
+		"style": {
+			"navigationBarTitleText": "确认支付"
+		}
+	}
+	, {
+		"path": "pages/index/index",
+		"style": {
+			"navigationBarBackgroundColor": "#4F4A4E",
+			"navigationBarTextStyle": "white",
+			"navigationBarTitleText": "首页"
+		}
+	}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "物流管理系统",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#000000",
+		"selectedColor": "#FF0000",
+		"borderStyle": "black",
+		"backgroundColor": "#FFFFFF",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabs/index.png",
+				"selectedIconPath": "static/tabs/index1.png",
+				"text": "首页"
+			}
+			
+
+			,{
+				"pagePath": "pages/huowudingdan/list",
+				"iconPath": "/static/tabs/icon1.png",
+				"selectedIconPath": "/static/tabs/icon1_act.png",
+				"text": "货物订单"
+			}
+
+			,{
+			 	"pagePath": "pages/news/list",
+				"iconPath": "static/tabs/news.png",
+			 	"selectedIconPath": "static/tabs/news_act.png",
+				"text": "物流资讯"
+			}
+
+
+
+
+
+			,{
+				"pagePath": "pages/center/center",
+				"iconPath": "static/tabs/mine.png",
+				"selectedIconPath": "static/tabs/mine1.png",
+				"text": "我的"
+			}
+		]
+	}
+}

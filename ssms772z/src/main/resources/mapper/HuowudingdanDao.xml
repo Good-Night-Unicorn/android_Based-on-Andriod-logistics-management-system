@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.HuowudingdanDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.HuowudingdanEntity" id="huowudingdanMap">
+        <result property="wuliudanhao" column="wuliudanhao"/>
+        <result property="huowumingcheng" column="huowumingcheng"/>
+        <result property="huowuleixing" column="huowuleixing"/>
+        <result property="huowuzhongliang" column="huowuzhongliang"/>
+        <result property="tupian" column="tupian"/>
+        <result property="fahuoren" column="fahuoren"/>
+        <result property="fahuodizhi" column="fahuodizhi"/>
+        <result property="shouji" column="shouji"/>
+        <result property="shouhuoren" column="shouhuoren"/>
+        <result property="shouhuorenshouji" column="shouhuorenshouji"/>
+        <result property="shouhuodizhi" column="shouhuodizhi"/>
+        <result property="kehuzhanghao" column="kehuzhanghao"/>
+        <result property="kehuxingming" column="kehuxingming"/>
+        <result property="dengjishijian" column="dengjishijian"/>
+        <result property="dingdanbeizhu" column="dingdanbeizhu"/>
+        <result property="fahuozhuangtai" column="fahuozhuangtai"/>
+        <result property="userid" column="userid"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.HuowudingdanVO" >
+		SELECT * FROM huowudingdan  huowudingdan         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.HuowudingdanVO" >
+		SELECT  huowudingdan.* FROM huowudingdan  huowudingdan
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.HuowudingdanView" >
+
+		SELECT  huowudingdan.* FROM huowudingdan  huowudingdan 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.HuowudingdanView" >
+		SELECT * FROM huowudingdan  huowudingdan <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>
